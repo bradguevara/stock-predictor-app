@@ -1,0 +1,111 @@
+====================================================
+  STOCK INSIGHT DASHBOARD — PROJECT PLAN
+  Portfolio Project for First Job Resume
+====================================================
+
+
+THE IDEA
+--------
+A full-stack web app that pulls real stock data from Yahoo Finance,
+stores it in a database, and uses machine learning to predict whether
+a stock price will go UP or DOWN the next day.
+Runs 100% on localhost. No authentication needed.
+
+
+----------------------------------------------------
+TECH STACK
+----------------------------------------------------
+
+Backend (Python):
+  - FastAPI          → your REST API framework
+  - yfinance         → connects to Yahoo Finance
+  - SQLAlchemy       → connects Python to your database
+  - SQLite           → your local database
+  - scikit-learn     → machine learning predictions
+  - pandas + NumPy   → data manipulation
+  - ta library       → technical indicators (RSI, MACD, etc.)
+
+Frontend:
+  - React + Vite     → UI framework
+  - Chart.js         → stock price charts
+  - Tailwind CSS     → styling
+
+
+----------------------------------------------------
+API ENDPOINTS TO BUILD
+----------------------------------------------------
+
+  GET    /stocks/{ticker}           → fetch live stock info
+  GET    /stocks/{ticker}/history   → historical price data
+  POST   /stocks/{ticker}/save      → save stock to database
+  GET    /stocks/saved              → list all saved stocks
+  GET    /stocks/{ticker}/predict   → run ML model, get prediction
+  GET    /stocks/{ticker}/indicators → RSI, MACD, moving averages
+  GET    /health                    → confirm API is running
+
+
+----------------------------------------------------
+MACHINE LEARNING
+----------------------------------------------------
+
+Problem: Will the stock go UP or DOWN tomorrow? (classification)
+
+Features to use:
+  - 7-day and 30-day moving averages
+  - Daily % price change
+  - Volume vs 10-day average
+  - RSI (Relative Strength Index)
+  - Bollinger Band position
+  - Day of the week
+
+Models to train:
+  - Random Forest Classifier  (main model)
+  - Logistic Regression        (comparison baseline)
+
+Show: accuracy score, confusion matrix, precision/recall
+Comparing two models = big resume points
+
+
+----------------------------------------------------
+DATABASE
+----------------------------------------------------
+
+Table: stocks
+  - ticker, company name, sector, last updated
+
+Table: price_history
+  - ticker, date, open, high, low, close, volume
+
+Table: predictions
+  - ticker, date predicted, UP/DOWN result, confidence, model used
+
+Storing predictions lets you backtest later:
+did the model's past predictions actually come true?
+
+
+----------------------------------------------------
+EXTRA FEATURES (if you have time)
+----------------------------------------------------
+
+  - Compare two tickers on the same chart
+  - Backtesting view (predicted vs actual)
+  - Smart caching (don't re-fetch data under 60 min old)
+  - News feed per ticker (yfinance has this built in)
+  - Second model comparison view
+
+
+----------------------------------------------------
+BUILD ORDER (do it in this sequence)
+----------------------------------------------------
+
+  1. Set up FastAPI → confirm /health works
+  2. Connect yfinance → return real stock data
+  3. Add SQLite + SQLAlchemy → save data to DB
+  4. Build ML pipeline → train model, print accuracy
+  5. Add /predict endpoint → call the model from API
+  6. Add /indicators endpoint → RSI, moving averages
+  7. Build React frontend → search bar + chart + prediction card
+  8. Store predictions in DB → build backtest view
+  9. Write README with setup instructions + screenshots
+  10. Push to GitHub → pin on your profile
+
