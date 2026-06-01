@@ -3,3 +3,9 @@ uvicorn
 sqlalchemy
 scikit-learn
 yfinance
+python-dotenv
+finnhub-python
+npm install recharts
+pip install ta
+pip install xgboost
+pip install google-generativeai

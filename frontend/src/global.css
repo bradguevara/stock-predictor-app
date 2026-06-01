@@ -20,12 +20,12 @@
 }
 
 html, body, #root {
-  height: 100%;
+  min-height: 100%;
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   font-weight: 300;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Grid background */
@@ -225,7 +225,7 @@ body::after {
   margin: 48px auto 0;
   max-width: 620px;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   background: var(--surface);
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.7s;

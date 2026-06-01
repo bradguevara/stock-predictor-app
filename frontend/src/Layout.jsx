@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import './Layout.css'
 
 function Layout() {
   const [ticker, setTicker] = useState('')
+  const navigate = useNavigate()
 
   const handleSearch = (e) => {
     e.preventDefault()
-    console.log('Searching for:', ticker)
+    if (ticker) navigate(`/stocks/${ticker}`)
   }
 
   return (
